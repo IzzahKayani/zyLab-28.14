@@ -78,11 +78,18 @@ void ShoppingCart::PrintTotal(){
     for(int i = 0; i < cartItems.size(); i++){
         ItemToPurchase currItem = cartItems.at(i);
 
-        currItem.PrintItemCost();
+        currItem.PrintDescriptions();
     }
     cout << endl;
     cout << "Total: " << GetCostOfCart();
 }
 void ShoppingCart::PrintDescriptions(){
+    cout << customerName << " - " << currentDate << endl;
+    cout << "Numebr of Items: " << GetNumItemsInCart() << endl;
 
+    for(int i = 0; i < cartItems.size(); i++){
+        ItemToPurchase currItem = cartItems.at(i);
+
+        currItem.PrintitemDescription();
+    }
 }
