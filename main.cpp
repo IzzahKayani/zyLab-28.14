@@ -3,6 +3,7 @@
 using namespace std;
 
 #include "ShoppingCart.h"
+#include "ShoppingCart.cpp"
 
 void PrintMenu()
 {
@@ -18,7 +19,12 @@ void PrintMenu()
 
 void ExecuteMenu(char option, ShoppingCart& theCart)
 {
-
+	if(option == 'o')
+	{
+		cout << "OUTPUT SHOPPING CART" << endl;
+		cout << theCart.GetCustomerName(); << "'s  Shopping Cart - " << theCart.GetDate();
+		cout << "Number of Items"
+	}
    
 }
 
