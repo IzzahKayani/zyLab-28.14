@@ -71,14 +71,18 @@ double ShoppingCart::GetCostOfCart(){
 }
       
 void ShoppingCart::PrintTotal(){
-    cout << 
+
+    cout << customerName << " - " << currentDate << endl;
+    cout << "Number of Items: " << GetNumItemsInCart() << endl << endl;
+
+    for(int i = 0; i < cartItems.size(); i++){
+        ItemToPurchase currItem = cartItems.at(i);
+
+        currItem.PrintItemCost();
+    }
+    cout << endl;
+    cout << "Total: " << GetCostOfCart();
 }
 void ShoppingCart::PrintDescriptions(){
 
 }
-      
-   
-   private:
-      string customerName;
-      string currentDate;
-      vector<ItemToPurchase> cartItems;
