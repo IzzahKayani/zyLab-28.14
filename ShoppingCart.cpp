@@ -2,8 +2,14 @@
 #include "ShoppingCart.h"
 using namespace std;
 
-ShoppingCart::ShoppingCart();
-ShoppingCart::ShoppingCart(string name, string date)
+ShoppingCart::ShoppingCart(){
+    customerName = "none";
+    currentDate = "January 1, 2016";
+}
+ShoppingCart::ShoppingCart(string name, string date){
+    customerName = name;
+    currentDate = date;
+}
       
 string ShoppingCart::GetCustomerName() const{return customerName; }
 
@@ -26,7 +32,18 @@ void ShoppingCart::RemoveItem(string name){
       
 void ShoppingCart::ModifyItem(ItemToPurchase item){
     for(int i = 0; i < cartItem.size(); i++){
-        if(cartItem.at(i).GetName() == item.GetName())
+        ItemToPurchase currItem = cartItem.at(i);
+        if(currItem.GetName() == item.GetName()){
+            if((currItem.GetDescription() != "none") && (currItem.GetPrice() != 0) && (currItem.GetQuantity() != 0)){
+                currItem.SetDescription(item.GetDescription());
+                currItem.SetPrice(item.GetPrice());
+                currItem.SetQuantity(item.GetQuantity());
+            }
+            break;
+        }
+        else if(i == cartItem.size() - 1){
+            cout << "Item not found in cart. Nothing modified." << endl;
+        }
     }
 }
       
@@ -39,11 +56,22 @@ int ShoppingCart::GetNumItemsInCart(){
     return numItems;
 }
 double ShoppingCart::GetCostOfCart(){
+    int numItems = 0;
+    int costItems = 0; 
+    int totalItems = 0;
 
+    for(int i = 0; i < cartItems.size(); i++){
+
+        numItems = cartItems.at(i).GetQuantity();
+        costItems = cartItems.at(i).GetPrice();
+
+        totalItems += (numItems * costItems);
+    }
+    return static_cast<double>(totalItems);
 }
       
 void ShoppingCart::PrintTotal(){
-
+    cout << 
 }
 void ShoppingCart::PrintDescriptions(){
 
