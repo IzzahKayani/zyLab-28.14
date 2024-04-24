@@ -10,7 +10,7 @@ void PrintMenu()
 		   "a - Add item to cart"
 		   "d - Remove item from cart"
 		   "c - Change item quantity"
-		   "i - Output items descriptions"
+		   "i - Output items' descriptions"
 		   "o - Output shopping cart"
 		   "q - Quit" << endl;
    
@@ -22,9 +22,12 @@ void ExecuteMenu(char option, ShoppingCart& theCart)
    
 }
 
-int main() {
+int main()
+{
    string name;
    string date;
+   string option;
+   bool repeat = true;
 
 
    cout << "Enter customer's name:" << endl;
@@ -36,9 +39,25 @@ int main() {
    cout << "Customer name: " << name << endl;
    cout << "Today's date: " << date << endl;
 
-   ShoppingCart item = new ShoppingCart(name, date);
+   ShoppingCart cart = new ShoppingCart(name, date);
 
-   PrintMenu();
+   while(repeat)
+   {
+	   PrintMenu();
+	   cout << "Choose an option: ";
+	   cin >> option;
+
+	   switch(option)
+	   {
+	   case 'a', 'd', 'c', 'i', 'o':
+		   ExecuteMenu(option, cart);
+	   case 'q':
+		   repeat = false;
+	   default:
+		   cout << "incorrect input" << endl;
+		   repeat = true;
+	   }
+   }
 
 
    
