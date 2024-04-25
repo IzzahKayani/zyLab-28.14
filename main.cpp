@@ -38,7 +38,7 @@ int main()
 
    cout << "Enter customer's name:" << endl;
    getline(cin, name);
-   cout << "Enter today's date" << endl;
+   cout << "Enter today's date:" << endl;
    getline(cin, date);
    cout << endl;
 
@@ -64,8 +64,6 @@ int main()
 		   repeat = true;
 	   }
    }
-
-
    
    return 0;
 }
