@@ -19,20 +19,20 @@ void ShoppingCart::AddItem(ItemToPurchase item){
     cartItems.push_back(item);
 }
 void ShoppingCart::RemoveItem(string name){
-    for(int i = 0; i < cartItems.size(); i++){
+    for(int i = 0; i < static_cast<int>(cartItems.size()); i++){
         if(cartItems.at(i).GetName() == name){
             cartItems.erase(cartItems.begin() + i);
             break;
         }
-        else if(i == cartItems.size() - 1){
+        else if(i == static_cast<int>(cartItems.size()) - 1){
             cout << "Item not found in cart. Nothing removed." << endl;
         }
     }
 }
       
 void ShoppingCart::ModifyItem(ItemToPurchase item){
-    for(int i = 0; i < cartItem.size(); i++){
-        ItemToPurchase currItem = cartItem.at(i);
+    for(int i = 0; i < static_cast<int>(cartItems.size()); i++){
+        ItemToPurchase currItem = cartItems.at(i);
         if(currItem.GetName() == item.GetName()){
             if((currItem.GetDescription() != "none") && (currItem.GetPrice() != 0) && (currItem.GetQuantity() != 0)){
                 currItem.SetDescription(item.GetDescription());
@@ -41,7 +41,7 @@ void ShoppingCart::ModifyItem(ItemToPurchase item){
             }
             break;
         }
-        else if(i == cartItem.size() - 1){
+        else if(i == cartItems.size() - 1){
             cout << "Item not found in cart. Nothing modified." << endl;
         }
     }
@@ -49,7 +49,7 @@ void ShoppingCart::ModifyItem(ItemToPurchase item){
       
 int ShoppingCart::GetNumItemsInCart(){
     int numItems = 0;
-    for(int i = 0; i < cartItems.size(); i++){
+    for(int i = 0; i < static_cast<int>(cartItems.size()); i++){
 
         numItems += cartItems.at(i).GetQuantity();
     }
@@ -60,7 +60,7 @@ double ShoppingCart::GetCostOfCart(){
     int costItems = 0; 
     int totalItems = 0;
 
-    for(int i = 0; i < cartItems.size(); i++){
+    for(int i = 0; i < static_cast<int>(cartItems.size()); i++){
 
         numItems = cartItems.at(i).GetQuantity();
         costItems = cartItems.at(i).GetPrice();
@@ -75,21 +75,21 @@ void ShoppingCart::PrintTotal(){
     cout << customerName << " - " << currentDate << endl;
     cout << "Number of Items: " << GetNumItemsInCart() << endl << endl;
 
-    for(int i = 0; i < cartItems.size(); i++){
+    for(int i = 0; i < static_cast<int>(cartItems.size()); i++){
         ItemToPurchase currItem = cartItems.at(i);
 
-        currItem.PrintDescriptions();
+        currItem.PrintItemCost();
     }
     cout << endl;
     cout << "Total: " << GetCostOfCart();
 }
 void ShoppingCart::PrintDescriptions(){
     cout << customerName << " - " << currentDate << endl;
-    cout << "Numebr of Items: " << GetNumItemsInCart() << endl;
+    cout << "Number of Items: " << GetNumItemsInCart() << endl;
 
-    for(int i = 0; i < cartItems.size(); i++){
+    for(int i = 0; i < static_cast<int>(cartItems.size()); i++){
         ItemToPurchase currItem = cartItems.at(i);
 
-        currItem.PrintitemDescription();
+        currItem.PrintItemDescription();
     }
 }

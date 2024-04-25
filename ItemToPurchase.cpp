@@ -8,7 +8,7 @@ ItemToPurchase::ItemToPurchase(){
     itemPrice = 0;
     itemQuantity = 0;
 }
-ItemToPurchase::ItemToPurchase(string name, string description, int price = 0, int quantity = 0){
+ItemToPurchase::ItemToPurchase(string name, string description, int price, int quantity){
     itemName = name;
     itemDescription = description;
     itemPrice = price;

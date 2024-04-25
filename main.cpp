@@ -20,14 +20,14 @@ int main() {
 
    cout << "Enter customer's name:" << endl;
    getline(cin, name);
-   cout << "Enter today's date" << endl;
+   cout << "Enter today's date:" << endl;
    getline(cin, date);
    cout << endl;
 
    cout << "Customer name: " << name << endl;
    cout << "Today's date: " << date << endl;
 
-   ShoppingCart item = new ShoppingCart(name, date);
+   ShoppingCart item(name, date);
 
    
    return 0;
