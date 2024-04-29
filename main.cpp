@@ -28,13 +28,13 @@ void ExecuteMenu(char option, ShoppingCart& theCart)
 	}
 	if(option == 'i')
 	{
-		theCart.PrintDescription();
+		theCart.PrintDescriptions();
 	}
 	if(option == 'a')
 	{
 		string itemDescription;
 		int itemPrice;
-		ItemToPurchace newItem = new ItemToPurchace();
+		ItemToPurchase newItem = new ItemToPurchace();
 
 		cout << "ADD ITEM TO CART" << endl;
 		cout << "Enter the item name:" << endl;
@@ -47,7 +47,7 @@ void ExecuteMenu(char option, ShoppingCart& theCart)
 
 		cout << "Enter the item price:" << endl;
 		cin >> itemPrice;
-		newItem.SetPrice(itemPrice;
+		newItem.SetPrice(itemPrice);
 
 		cout << "Enter the item quantity:" << endl;
 		cin >> itemQuantity;
@@ -63,18 +63,13 @@ void ExecuteMenu(char option, ShoppingCart& theCart)
 
 			theCart.RemoveItem(itemName);
 		}
-	if(output == 'c')
+	if(option == 'c')
 		{
 			cout << "CHANGE ITEM QUANTITY" << endl;
 			cout << "Enter the item name:" << endl;
 			getline(cin, itemName);
 			cout <<"Enter the new quantity:" << endl;
 			cin >> itemQuantity;
-
-			for(int i = 0; i < theCart.GetNumItemsInCart(); i++)
-			{
-				if(theCart.)
-			}
 
 
 		}
@@ -84,7 +79,7 @@ int main()
 {
    string name;
    string date;
-   string option;
+   char option;
    bool repeat = true;
 
 
@@ -97,7 +92,7 @@ int main()
    cout << "Customer name: " << name << endl;
    cout << "Today's date: " << date << endl;
 
-   ShoppingCart cart = new ShoppingCart(name, date);
+   ShoppingCart& cart = new ShoppingCart(name, date);
 
    while(repeat)
    {
@@ -107,8 +102,16 @@ int main()
 
 	   switch(option)
 	   {
-	   case 'a', 'd', 'c', 'i', 'o':
+	   case 'a':
 		   ExecuteMenu(option, cart);
+		case 'd':
+		   ExecuteMenu(option, cart);
+		case 'c':
+		   ExecuteMenu(option, cart);
+		case 'i':
+		 ExecuteMenu(option, cart);
+		case 'o':
+		 ExecuteMenu(option, cart);
 	   case 'q':
 		   repeat = false;
 	   default:
