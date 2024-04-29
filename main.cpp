@@ -19,13 +19,65 @@ void PrintMenu()
 
 void ExecuteMenu(char option, ShoppingCart& theCart)
 {
+	string itemName;
+	int itemQuantity;
+
 	if(option == 'o')
 	{
-		cout << "OUTPUT SHOPPING CART" << endl;
-		cout << theCart.GetCustomerName(); << "'s  Shopping Cart - " << theCart.GetDate();
-		cout << "Number of Items"
+		theCart.PrintTotal();
 	}
-   
+	if(option == 'i')
+	{
+		theCart.PrintDescription();
+	}
+	if(option == 'a')
+	{
+		string itemDescription;
+		int itemPrice;
+		ItemToPurchace newItem = new ItemToPurchace();
+
+		cout << "ADD ITEM TO CART" << endl;
+		cout << "Enter the item name:" << endl;
+		getline(cin, itemName);
+		newItem.SetName(itemName);
+
+		cout << "Enter the item description:" << endl;
+		getline(cin, itemDescription);
+		newItem.SetDescription(itemDescription);
+
+		cout << "Enter the item price:" << endl;
+		cin >> itemPrice;
+		newItem.SetPrice(itemPrice;
+
+		cout << "Enter the item quantity:" << endl;
+		cin >> itemQuantity;
+		newItem.SetQuantity(itemQuantity);
+
+		theCart.AddItem(newItem);
+	}
+	if(option == 'd')
+		{
+			cout << "CHANGE ITEM QUANTITY" << endl;
+			cout << "Enter name of item to remove:" << endl;
+			getline(cin, itemName);
+
+			theCart.RemoveItem(itemName);
+		}
+	if(output == 'c')
+		{
+			cout << "CHANGE ITEM QUANTITY" << endl;
+			cout << "Enter the item name:" << endl;
+			getline(cin, itemName);
+			cout <<"Enter the new quantity:" << endl;
+			cin >> itemQuantity;
+
+			for(int i = 0; i < theCart.GetNumItemsInCart(); i++)
+			{
+				if(theCart.)
+			}
+
+
+		}
 }
 
 int main()
@@ -38,7 +90,7 @@ int main()
 
    cout << "Enter customer's name:" << endl;
    getline(cin, name);
-   cout << "Enter today's date:" << endl;
+   cout << "Enter today's date" << endl;
    getline(cin, date);
    cout << endl;
 
@@ -64,6 +116,8 @@ int main()
 		   repeat = true;
 	   }
    }
+
+
    
    return 0;
 }
