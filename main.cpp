@@ -78,7 +78,7 @@ void ExecuteMenu(char option, ShoppingCart& theCart)
 			cin >> itemQuantity;
 			changeItem.SetQuantity(itemQuantity);
 
-			theCart.ModifyItem(newItem);
+			theCart.ModifyItem(changeItem);
 		}
 }
 
