@@ -67,13 +67,18 @@ void ExecuteMenu(char option, ShoppingCart& theCart)
 		}
 	if(option == 'c')
 		{
+			ItemToPurchase changeItem;
+
 			cout << "CHANGE ITEM QUANTITY" << endl;
 			cout << "Enter the item name:" << endl;
 			getline(cin, itemName);
+			changeItem.SetName(itemName);
+
 			cout <<"Enter the new quantity:" << endl;
 			cin >> itemQuantity;
+			changeItem.SetQuantity(itemQuantity);
 
-
+			theCart.ModifyItem(newItem);
 		}
 }
 
@@ -106,14 +111,14 @@ int main()
 	   {
 	   case 'a':
 		   ExecuteMenu(option, cart);
-		case 'd':
+	   case 'd':
 		   ExecuteMenu(option, cart);
-		case 'c':
+	   case 'c':
 		   ExecuteMenu(option, cart);
-		case 'i':
-		 ExecuteMenu(option, cart);
-		case 'o':
-		 ExecuteMenu(option, cart);
+	   case 'i':
+		   ExecuteMenu(option, cart);
+	   case 'o':
+		   ExecuteMenu(option, cart);
 	   case 'q':
 		   repeat = false;
 	   default:
