@@ -3,9 +3,11 @@
 using namespace std;
 
 #include "ShoppingCart.h"
+#include "ShoppingCart.cpp"
 
 void PrintMenu()
 {
+
    cout << "MENU" << endl <<
 		   "a - Add item to cart" << endl <<
 		   "d - Remove item from cart" << endl <<
@@ -33,6 +35,7 @@ void ExecuteMenu(char option, ShoppingCart& theCart)
 	{
 		string itemDescription;
 		int itemPrice;
+
 		ItemToPurchase newItem;
 
 		cout << "ADD ITEM TO CART" << endl;
@@ -76,6 +79,7 @@ void ExecuteMenu(char option, ShoppingCart& theCart)
 
 int main()
 {
+
    string custName;
    string currDate;
    char option;
@@ -117,8 +121,6 @@ int main()
 		   repeat = true;
 	   }
    }
-
-
    
    return 0;
 }
