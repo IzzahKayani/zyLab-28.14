@@ -63,6 +63,7 @@ void ExecuteMenu(char option, ShoppingCart& theCart)
 		cin >> itemQuantity;
 		newItem.SetQuantity(itemQuantity);
 
+      cout << endl;
 		theCart.AddItem(newItem);
 	}
 	if(option == 'd')
@@ -108,7 +109,7 @@ int main()
    cout << "Today's date: " << currDate << endl;
    cout << endl;
 
-   ShoppingCart cart;
+   ShoppingCart cart(custName, currDate);
 
    PrintMenu();
 
@@ -119,7 +120,7 @@ int main()
          PrintMenu();
       }
 
-	   cout << "Choose an option:" << endl;;
+	   cout << "Choose an option:" << endl;
 	   cin >> option;
 
 	   switch(option)
