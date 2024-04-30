@@ -7,12 +7,13 @@ using namespace std;
 
 void PrintMenu()
 {
-   cout << "MENU "
-		   "a - Add item to cart"
-		   "d - Remove item from cart"
-		   "c - Change item quantity"
-		   "i - Output items' descriptions"
-		   "o - Output shopping cart"
+
+   cout << "MENU" << endl <<
+		   "a - Add item to cart" << endl <<
+		   "d - Remove item from cart" << endl <<
+		   "c - Change item quantity" << endl << 
+		   "i - Output items' descriptions" << endl <<
+		   "o - Output shopping cart" << endl <<
 		   "q - Quit" << endl;
    
 }
@@ -34,7 +35,8 @@ void ExecuteMenu(char option, ShoppingCart& theCart)
 	{
 		string itemDescription;
 		int itemPrice;
-		ItemToPurchase newItem = new ItemToPurchace();
+
+		ItemToPurchase newItem;
 
 		cout << "ADD ITEM TO CART" << endl;
 		cout << "Enter the item name:" << endl;
@@ -77,22 +79,22 @@ void ExecuteMenu(char option, ShoppingCart& theCart)
 
 int main()
 {
-   string name;
-   string date;
+
+   string custName;
+   string currDate;
    char option;
    bool repeat = true;
 
-
    cout << "Enter customer's name:" << endl;
-   getline(cin, name);
+   getline(cin, custName);
    cout << "Enter today's date" << endl;
-   getline(cin, date);
+   getline(cin, currDate);
    cout << endl;
 
-   cout << "Customer name: " << name << endl;
-   cout << "Today's date: " << date << endl;
+   cout << "Customer name: " << custName << endl;
+   cout << "Today's date: " << currDate << endl;
 
-   ShoppingCart& cart = new ShoppingCart(name, date);
+   ShoppingCart cart;
 
    while(repeat)
    {
@@ -119,8 +121,6 @@ int main()
 		   repeat = true;
 	   }
    }
-
-
    
    return 0;
 }
