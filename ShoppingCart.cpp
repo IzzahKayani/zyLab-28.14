@@ -82,10 +82,12 @@ void ShoppingCart::PrintTotal(){
             currItem.PrintItemCost();
         }
         cout << endl;
-        cout << "Total: " << GetCostOfCart();
+        cout << "Total: $" << GetCostOfCart() << endl << endl;
     }
     else{
-        cout << "SHOPPING CART IS EMPTY" << endl;
+       cout << "Number of Items: " << GetNumItemsInCart() << endl << endl;
+        cout << "SHOPPING CART IS EMPTY" << endl << endl;
+        cout << "Total: $" << GetCostOfCart() << endl << endl;;
     }
 }
 void ShoppingCart::PrintDescriptions(){
