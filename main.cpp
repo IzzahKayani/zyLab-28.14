@@ -3,7 +3,9 @@
 using namespace std;
 
 #include "ShoppingCart.h"
-#include "ShoppingCart.cpp"
+
+
+//https://github.com/IzzahKayani/zyLab-28.14.git
 
 void PrintMenu()
 {
@@ -15,6 +17,7 @@ void PrintMenu()
 		   "i - Output items' descriptions" << endl <<
 		   "o - Output shopping cart" << endl <<
 		   "q - Quit" << endl;
+		   cout << endl;
    
 }
 
@@ -25,13 +28,18 @@ void ExecuteMenu(char option, ShoppingCart& theCart)
 
 	if(option == 'o')
 	{
+	   cout << "OUTPUT SHOPPING CART" << endl;
+	   cout << theCart.GetCustomerName() << "'s Shopping Cart - " << theCart.GetDate() << endl;
 		theCart.PrintTotal();
 	}
 	if(option == 'i')
 	{
+	   cout << "OUTPUT ITEMS' DESCRIPTIONS" << endl;
+	   cout << theCart.GetCustomerName() << "'s Shopping Cart - " << theCart.GetDate() << endl;
 		theCart.PrintDescriptions();
 	}
 	if(option == 'a')
+
 	{
 		string itemDescription;
 		int itemPrice;
@@ -92,38 +100,45 @@ int main()
 
    cout << "Enter customer's name:" << endl;
    getline(cin, custName);
-   cout << "Enter today's date" << endl;
+   cout << "Enter today's date:" << endl;
    getline(cin, currDate);
    cout << endl;
 
    cout << "Customer name: " << custName << endl;
    cout << "Today's date: " << currDate << endl;
+   cout << endl;
 
    ShoppingCart cart;
 
+   PrintMenu();
+
    while(repeat)
    {
-	   PrintMenu();
-	   cout << "Choose an option: ";
+      if(option == 'a' || option == 'd' || option == 'c' || option == 'i' || option == 'o')
+      {
+         PrintMenu();
+      }
+
+	   cout << "Choose an option:" << endl;;
 	   cin >> option;
 
 	   switch(option)
 	   {
 	   case 'a':
-		   ExecuteMenu(option, cart);
+		   ExecuteMenu(option, cart); break;
 	   case 'd':
-		   ExecuteMenu(option, cart);
+		   ExecuteMenu(option, cart); break;
 	   case 'c':
-		   ExecuteMenu(option, cart);
+		   ExecuteMenu(option, cart); break;
 	   case 'i':
-		   ExecuteMenu(option, cart);
+		   ExecuteMenu(option, cart); break;
 	   case 'o':
-		   ExecuteMenu(option, cart);
+		   ExecuteMenu(option, cart); break;
 	   case 'q':
-		   repeat = false;
+		   repeat = false; break;
 	   default:
-		   cout << "incorrect input" << endl;
 		   repeat = true;
+		   break;
 	   }
    }
    
