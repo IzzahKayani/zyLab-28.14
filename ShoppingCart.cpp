@@ -72,24 +72,34 @@ double ShoppingCart::GetCostOfCart(){
       
 void ShoppingCart::PrintTotal(){
 
-    cout << customerName << " - " << currentDate << endl;
-    cout << "Number of Items: " << GetNumItemsInCart() << endl << endl;
+    if(cartItems.size() != 0){
+        cout << customerName << " - " << currentDate << endl;
+        cout << "Number of Items: " << GetNumItemsInCart() << endl << endl;
 
-    for(int i = 0; i < static_cast<int>(cartItems.size()); i++){
-        ItemToPurchase currItem = cartItems.at(i);
+        for(int i = 0; i < static_cast<int>(cartItems.size()); i++){
+            ItemToPurchase currItem = cartItems.at(i);
 
-        currItem.PrintItemCost();
+            currItem.PrintItemCost();
+        }
+        cout << endl;
+        cout << "Total: " << GetCostOfCart();
     }
-    cout << endl;
-    cout << "Total: " << GetCostOfCart();
+    else{
+        cout << "SHOPPING CART IS EMPTY" << endl;
+    }
 }
 void ShoppingCart::PrintDescriptions(){
-    cout << customerName << " - " << currentDate << endl;
-    cout << "Number of Items: " << GetNumItemsInCart() << endl;
+    if(cartItems.size() != 0){
+        cout << customerName << " - " << currentDate << endl;
+        cout << "Number of Items: " << GetNumItemsInCart() << endl;
 
-    for(int i = 0; i < static_cast<int>(cartItems.size()); i++){
-        ItemToPurchase currItem = cartItems.at(i);
+        for(int i = 0; i < static_cast<int>(cartItems.size()); i++){
+            ItemToPurchase currItem = cartItems.at(i);
 
-        currItem.PrintItemDescription();
+            currItem.PrintItemDescription();
+        }
+    }
+    else{
+        cout << "SHOPPING CART IS EMPTY" << endl;
     }
 }
