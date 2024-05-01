@@ -22,27 +22,28 @@ void ShoppingCart::RemoveItem(string name){
     for(int i = 0; i < static_cast<int>(cartItems.size()); i++){
         if(cartItems.at(i).GetName() == name){
             cartItems.erase(cartItems.begin() + i);
+            cout << endl;
             break;
         }
         else if(i == static_cast<int>(cartItems.size()) - 1){
-            cout << "Item not found in cart. Nothing removed." << endl;
+            cout << "Item not found in cart. Nothing removed." << endl << endl;
         }
     }
 }
-      
+
 void ShoppingCart::ModifyItem(ItemToPurchase item){
     for(int i = 0; i < static_cast<int>(cartItems.size()); i++){
         ItemToPurchase currItem = cartItems.at(i);
         if(currItem.GetName() == item.GetName()){
-            if((currItem.GetDescription() != "none") && (currItem.GetPrice() != 0) && (currItem.GetQuantity() != 0)){
-                currItem.SetDescription(item.GetDescription());
-                currItem.SetPrice(item.GetPrice());
+            if((currItem.GetDescription() != "none") && (currItem.GetPrice() != 0) && (currItem.GetQuantity() != 0))
+            {
+
                 currItem.SetQuantity(item.GetQuantity());
             }
             break;
         }
         else if(i == cartItems.size() - 1){
-            cout << "Item not found in cart. Nothing modified." << endl;
+            cout << "Item not found in cart. Nothing modified." << endl << endl;
         }
     }
 }
@@ -73,7 +74,6 @@ double ShoppingCart::GetCostOfCart(){
 void ShoppingCart::PrintTotal(){
 
     if(cartItems.size() != 0){
-        cout << customerName << " - " << currentDate << endl;
         cout << "Number of Items: " << GetNumItemsInCart() << endl << endl;
 
         for(int i = 0; i < static_cast<int>(cartItems.size()); i++){
@@ -92,14 +92,14 @@ void ShoppingCart::PrintTotal(){
 }
 void ShoppingCart::PrintDescriptions(){
     if(cartItems.size() != 0){
-        cout << customerName << " - " << currentDate << endl;
-        cout << "Number of Items: " << GetNumItemsInCart() << endl;
+        cout << "Item Descriptions" << endl;
 
         for(int i = 0; i < static_cast<int>(cartItems.size()); i++){
             ItemToPurchase currItem = cartItems.at(i);
 
             currItem.PrintItemDescription();
         }
+        cout << endl;
     }
     else{
         cout << "SHOPPING CART IS EMPTY" << endl;
