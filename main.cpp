@@ -6,6 +6,7 @@ using namespace std;
 
 
 //https://github.com/IzzahKayani/zyLab-28.14.git
+//members: Izzah Kayani and Luke Voinov
 
 void PrintMenu()
 {
@@ -31,12 +32,11 @@ void ExecuteMenu(char option, ShoppingCart& theCart)
 	   cout << "OUTPUT SHOPPING CART" << endl;
 	   cout << theCart.GetCustomerName() << "'s Shopping Cart - " << theCart.GetDate() << endl;
 		theCart.PrintTotal();
-		cin.ignore();
 	}
 	if(option == 'i')
 	{
 	   cout << "OUTPUT ITEMS' DESCRIPTIONS" << endl;
-	   cout << theCart.GetCustomerName() << "'s Shopping Cart - " << theCart.GetDate() << endl;
+	   cout << theCart.GetCustomerName() << "'s Shopping Cart - " << theCart.GetDate() << endl << endl;
 		theCart.PrintDescriptions();
 	}
 	if(option == 'a')
@@ -45,6 +45,7 @@ void ExecuteMenu(char option, ShoppingCart& theCart)
 		string itemDescription;
 		int itemPrice;
 
+      cin.ignore();
 		cout << "ADD ITEM TO CART" << endl;
 		cout << "Enter the item name:" << endl;
 		getline(cin, itemName);
@@ -62,17 +63,20 @@ void ExecuteMenu(char option, ShoppingCart& theCart)
       ItemToPurchase newItem(itemName, itemDescription, itemPrice, itemQuantity);
 		theCart.AddItem(newItem);
 
+
 	}
 	if(option == 'd')
 		{
+		   cin.ignore();
 			cout << "REMOVE ITEM FROM CART" << endl;
 			cout << "Enter name of item to remove:" << endl;
-			getline(cin, itemName);;
+			getline(cin, itemName);
 
 			theCart.RemoveItem(itemName);
 		}
 	if(option == 'c')
 		{
+		   cin.ignore();
 			ItemToPurchase changeItem;
 
 			cout << "CHANGE ITEM QUANTITY" << endl;

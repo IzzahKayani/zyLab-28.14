@@ -26,7 +26,7 @@ int ItemToPurchase::GetPrice() const{ return itemPrice; }
 int ItemToPurchase::GetQuantity() const{ return itemQuantity; }
       
 void ItemToPurchase::PrintItemCost(){
-    cout << itemName << " " << itemPrice << " @ $" << itemPrice << " = $" << (itemPrice * itemQuantity) << endl;
+    cout << itemName << " " << itemQuantity << " @ $" << itemPrice << " = $" << (itemPrice * itemQuantity) << endl;
 }
 void ItemToPurchase::PrintItemDescription(){
     cout << itemName << ": " << itemDescription << endl;
