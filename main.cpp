@@ -31,6 +31,7 @@ void ExecuteMenu(char option, ShoppingCart& theCart)
 	   cout << "OUTPUT SHOPPING CART" << endl;
 	   cout << theCart.GetCustomerName() << "'s Shopping Cart - " << theCart.GetDate() << endl;
 		theCart.PrintTotal();
+		cin.ignore();
 	}
 	if(option == 'i')
 	{
@@ -44,33 +45,29 @@ void ExecuteMenu(char option, ShoppingCart& theCart)
 		string itemDescription;
 		int itemPrice;
 
-		ItemToPurchase newItem;
-
 		cout << "ADD ITEM TO CART" << endl;
 		cout << "Enter the item name:" << endl;
 		getline(cin, itemName);
-		newItem.SetName(itemName);
 
 		cout << "Enter the item description:" << endl;
 		getline(cin, itemDescription);
-		newItem.SetDescription(itemDescription);
 
 		cout << "Enter the item price:" << endl;
 		cin >> itemPrice;
-		newItem.SetPrice(itemPrice);
 
 		cout << "Enter the item quantity:" << endl;
 		cin >> itemQuantity;
-		newItem.SetQuantity(itemQuantity);
 
       cout << endl;
+      ItemToPurchase newItem(itemName, itemDescription, itemPrice, itemQuantity);
 		theCart.AddItem(newItem);
+
 	}
 	if(option == 'd')
 		{
-			cout << "CHANGE ITEM QUANTITY" << endl;
+			cout << "REMOVE ITEM FROM CART" << endl;
 			cout << "Enter name of item to remove:" << endl;
-			getline(cin, itemName);
+			getline(cin, itemName);;
 
 			theCart.RemoveItem(itemName);
 		}
@@ -123,24 +120,18 @@ int main()
 	   cout << "Choose an option:" << endl;
 	   cin >> option;
 
-	   switch(option)
-	   {
-	   case 'a':
-		   ExecuteMenu(option, cart); break;
-	   case 'd':
-		   ExecuteMenu(option, cart); break;
-	   case 'c':
-		   ExecuteMenu(option, cart); break;
-	   case 'i':
-		   ExecuteMenu(option, cart); break;
-	   case 'o':
-		   ExecuteMenu(option, cart); break;
-	   case 'q':
-		   repeat = false; break;
-	   default:
-		   repeat = true;
-		   break;
-	   }
+      if(option == 'a' || option == 'd' || option == 'c' || option == 'i' || option == 'o')
+      {
+         ExecuteMenu(option, cart);
+      }
+      else if(option == 'q')
+      {
+         repeat = false;
+      }
+      else
+      {
+         repeat = true;
+      }
    }
    
    return 0;
