@@ -37,12 +37,12 @@ void ShoppingCart::ModifyItem(ItemToPurchase item){
         if(currItem.GetName() == item.GetName()){
             if((currItem.GetDescription() != "none") && (currItem.GetPrice() != 0) && (currItem.GetQuantity() != 0))
             {
-
-                currItem.SetQuantity(item.GetQuantity());
+               cartItems.at(i).SetQuantity(item.GetQuantity());
             }
             break;
         }
-        else if(i == cartItems.size() - 1){
+        else if(i == cartItems.size() - 1)
+        {
             cout << "Item not found in cart. Nothing modified." << endl << endl;
         }
     }
